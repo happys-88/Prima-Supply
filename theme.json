@@ -10,7 +10,7 @@
     "allowProduction": true,
     "baseTheme": "https://github.com/happys-88/Prima-Supply",
     "baseThemeVersion": {
-      "commit": "49f22a5a272ea5bd20e3a507186752f7a71bac6e"
+      "commit": "c27d5c57546338fa26ab9e9ea841dd7ec66bd322"
     }
   },
   "editors": [
