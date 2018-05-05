@@ -1,7 +1,5 @@
 ﻿{% extends "page" %}
-
 {% block title-tag-content %}{% firstof pageContext.metaTitle|safe labels.logIn %} - {% parent %}{% endblock title-tag-content %}
-
 {% block body-tag-classes %}mz-loginpage{% endblock body-tag-classes %}
 {% block ensighten-data %}
 <script type="text/javascript">

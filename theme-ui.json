@@ -230,8 +230,8 @@
                     "allowBlank": false,
                     "forceSelection": true,
                     "store": [
-                        36,
-                        72
+                        32,
+                        64
                     ]
                 },
                 {
