@@ -8,9 +8,9 @@
     "isTablet": true,
     "name": "Prima Supply Theme",
     "allowProduction": true,
+    "baseTheme": "https://github.com/happys-88/Prima-Supply",
     "baseThemeVersion": {
-      "commit": "e96f883b177bf948d09bdd608837d0f9fcba2438",
-      "version": "9.6.0"
+      "commit": "e9dd3037139d271d7e25db4b3f33f99eb473275e"
     }
   },
   "editors": [
