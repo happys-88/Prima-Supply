@@ -631,5 +631,50 @@
     "requiredField": "Indicates a required field",
     "selectedTopicMissing": "Please select a topic",
     "checkoutPaypal": "Checkout via Paypal",
-    "paypalMessage": "You will be redirected to the PayPal website"
+    "paypalMessage": "You will be redirected to the PayPal website",
+
+    
+    //Custom Added for Prima Supply by:- Ashish
+    "itemInStock"                            :   "Hurry, only {0} more in stock",
+    "stayConnected"                          :   "Stay Connected",
+    "signUpTitle"                            :   "Sign Up For Hot Deals News",
+    "paymentOptions"                         :   "Payment Options",
+    "paymenOptionsDesc"                      :   "Wire Transfers Checks Too!",
+    "copyRight"                              :   "Copy Right",
+    "enterEmailAddress"                      :   "Enter Email Address",
+    "join"                                   :   "Join",
+
+    "viewOnCart"                             :   "See low price in cart",
+    "viewOnLogin"                            :   "Login for price",
+    "shopByBrandHeading"                     :   "Shop Brands We Love",
+    "shopByCategoryHeading"                  :   "Shop By Category",
+    "servingTheFinest"                       :   "Serving the finest in hospitality",
+    "shopAllBrands"                          :   "Shop All Brands",
+    "saveCart"                               :   "Save Cart",
+    "cartPriceEach"                          :   "Price Each",
+    "cartPrice"                              :   "Price",
+    "continueShopping"                       :   "Continue Shopping",
+    "refineBy"                               :   "Refine by:" ,
+    "shoppingCart"                           :   "Shopping Cart",
+    "liftGateAddY"                           :   "Add Lift Gate Delivery",
+    "liftGateAddN"                           :   "I certify I can remove these items from truck",
+    "freightShipmentY"                       :   "I understand how to inspect freight shipment",
+    "freightShipmentN"                       :   "I don't understand. Please have someone contact me after I place my order.",
+    "liftGateMsg"                            :   "Liftgate Service Added",
+    "TBYBMsg"                                :   "TRY IT BEFORE YOU BUY IT!",
+    "labelOversized"                         :   "Oversized Shipping",
+    "reviews"                                :   "reviews",
+    "questions"                              :   "questions",
+    "inStock"                                :   "In Stock",
+
+    //For LogIn Popup and My account
+    "logInMsg"                               :   "Welcome back! Please enter your email address and password to sign into your online shopping account",
+    "signUpMsg"                              :   "Sign up with an email address and password",
+    "primaDeals"                             :   "Prima deals",
+    "primaDigest"                            :   "Prima digest",
+    "primaLearningCenter"                    :   "Prima learning center",
+    "signUpEmailMsg"                         :   "Sign up to receive the following emails",
+    "createNewAccount"                       :   "Create New Account",
+    "SecurityMsg"                            :   "Your connection to this website is secure",
+    "recentOrder"                            :   "Recent orders"
 }

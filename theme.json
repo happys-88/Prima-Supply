@@ -10,7 +10,7 @@
     "allowProduction": true,
     "baseTheme": "https://github.com/happys-88/Prima-Supply",
     "baseThemeVersion": {
-      "commit": "636d8aa28236e0542cfc762f17dbacab57922051"
+      "commit": "49f22a5a272ea5bd20e3a507186752f7a71bac6e"
     }
   },
   "editors": [
@@ -568,7 +568,12 @@
     "columnBreaker": "~",
     "defaultSort": "createDate asc",
     "enablePartialCaching": true,
-    "gutterWidth": "15px",
+    "loadGoogleFonts": [
+      "Source Sans Pro"
+    ],
+    "primaryFont": "Source Sans Pro",
+    "fontSize": "14px",
+    "gutterWidth": "25px",
     "internal-themeAddons": [],
     "itemListingThumbSize": 80,
     "listProductCode": true,
@@ -581,8 +586,8 @@
     "maxTopLevelNavItems": 10,
     "maxTopLevelNavLabelLength": 20,
     "pageSizeOptions": [
-      36,
-      72
+      32,
+      64
     ],
     "viewAllPageSize": 54,
     "pageSizeOptionsOrderHistory": [
@@ -613,7 +618,7 @@
     "showProductDetailProperties": false,
     "showProductDetailShortDesc": true,
     "showProductDetailUPC": true,
-    "ctslogo": "resources/images/cts-logo-sm.png",
+    "primaSupplylogo": "/resources/images/prima-supply-logo.png",
     "ctslogoxs": "/resources/images/cts-logo-xs.png",
     "navSeperator": "/resources/images/pipe.gif",
     "storeLocatorURL": "store-locator",
@@ -1850,9 +1855,101 @@
       ]
     },
     {
+      "displayName": "Shop By Category",
+      "displayTemplate": "custom/shop-by-category",
+      "editViewFields": [
+        {
+          "anchor": "100%",
+          "fieldLabel": "Choose Shop By Category",
+          "name": "shopByCategory",
+          "xtype": "mz-input-categorymulti"
+        }
+      ],
+      "icon": "/resources/admin/widgets/29_shop_by_category.png",
+      "id": "shop-by-category",
+      "validPageTypes": [
+        "*"
+      ]
+    },
+    {
+      "displayName": "Shop By Brand",
+      "displayTemplate": "custom/shop-by-brand",
+      "editViewFields": [
+        {
+          "anchor": "100%",
+          "fieldLabel": "Choose Shop By Brand",
+          "name": "shopByBrand",
+          "xtype": "mz-input-categorymulti"
+        }
+      ],
+      "icon": "/resources/admin/widgets/01_photo_text.png",
+      "id": "shop-by-brand",
+      "validPageTypes": [
+        "*"
+      ]
+    },
+    {
+      "id": "hotdealBanner",
+      "displayName": "Hot Deals Banner",
+      "displayTemplate": "custom/hot-deal-banner",
+      "editViewFields": [
+        {
+          "anchor": "50%",
+          "fieldLabel": "Add Banner Title",
+          "name": "BannerTitle",
+          "xtype": "mz-input-text"
+        },
+        {
+          "anchor": "50%",
+          "fieldLabel": "Add Banner Description1 ",
+          "name": "DescTitleOne",
+          "xtype": "mz-input-text"
+        },
+        {
+          "anchor": "50%",
+          "fieldLabel": "Add Banner Description2 ",
+          "name": "DescTitleTwo",
+          "xtype": "mz-input-text"
+        },
+        {
+          "anchor": "50%",
+          "fieldLabel": "Add Banner Description3 ",
+          "name": "DescTitleThree",
+          "xtype": "mz-input-text"
+        }
+      ],
+      "icon": "/resources/admin/widgets/28_deal_of_the_day.png",
+      "validPageTypes": [
+        "*"
+      ]
+    },
+    {
+      "displayName": "Promo Banner",
+      "displayTemplate": "custom/home-promo-banner",
+      "editViewFields": [
+        {
+          "anchor": "100%",
+          "xtype": "mz-input-text",
+          "name": "promoUrl",
+          "fieldLabel": "Enter url for Promo Banner"
+        },
+        {
+          "anchor": "100%",
+          "fieldLabel": "Add Promo Image",
+          "name": "promoImage",
+          "xtype": "mz-input-image"
+        }
+      ],
+      "icon": "/resources/admin/widgets/01_photo_text.png",
+      "id": "promo-banner",
+      "validPageTypes": [
+        "*"
+      ]
+    },
+    {
       "id": "Brandhospitality",
       "displayName": "Serving the finest in hospitality",
-      "displayTemplate": "misc/hospitality",
+      "displayTemplate": "custom/hospitality",
       "title": "Serving The Finest In Hospitality",
       "collapsed": false,
       "editViewFields": [
