@@ -10,7 +10,7 @@
     "allowProduction": true,
     "baseTheme": "https://github.com/happys-88/Prima-Supply",
     "baseThemeVersion": {
-      "commit": "7a8e29b1d15631b8f8c6dc6c6fce2c0e9e7f3a10"
+      "commit": "2ace585e16e249a4bb48d5bb80df2fef3d365c7a"
     }
   },
   "editors": [
@@ -2081,6 +2081,28 @@
           "fieldLabel": "Add Link",
           "name": "shopNowWidgetUrl",
           "xtype": "mz-input-text"
+        }
+      ],
+      "icon": "/resources/admin/widgets/28_deal_of_the_day.png",
+      "validPageTypes": [
+        "*"
+      ]
+    },
+    {
+      "id": "categoryBanner",
+      "displayName": "Category Banner",
+      "displayTemplate": "custom/category-banner",
+      "editViewFields": [
+        {
+          "xtype": "panel",
+          "items": [
+            {
+              "anchor": "50%",
+              "fieldLabel": "Add Image",
+              "name": "categoryBanner",
+              "xtype": "mz-input-image"
+            }
+          ]
         }
       ],
       "icon": "/resources/admin/widgets/28_deal_of_the_day.png",

@@ -1,4 +1,5 @@
 ﻿{% if not pageContext.query.partial %}
+{% comment %}
 {% block ensighten-data %}
     <script type="text/javascript">
         var pageData = {
@@ -22,6 +23,7 @@
         };
     </script> 
 {% endblock ensighten-data %}
+{% endcomment %}
 <script type="text/json" id="data-mz-preload-facetedproducts">
 {
     "items" : {% json model.items %},
@@ -40,55 +42,70 @@
 }
 </script>
 {% endif %}
-<div class="mz-l-paginatedlist pull-right{% if model.facets %} col-xs-12 col-sm-8 col-md-9{%else%} col-xs-12{% endif %}">
-    <div class="title-sort-breadcrumb-wrapper">
-        {% block breadcrumbs %}
-        {% if themeSettings.showBreadcrumbs %}
-        {% include "modules/breadcrumbs" %}
+
+<div class="row">
+    {% if pageContext.isDesktop %}
+        {% if model.facets %}
+        <div class=" col-xs-12 col-sm-3 col-md-2">
+            <div data-mz-facets class="mz-l-sidebar">
+                {% dropzone "sidebar-above-facets" scope="template" %}
+                {% include "modules/product/faceting-form" %}
+                {% dropzone "sidebar-below-facets" scope="template" %}
+            </div>
+        </div>
         {% endif %}
-        {% endblock breadcrumbs %}
-        {% dropzone "category-page-top" scope="page" %}
-        <div id="products-wrapper" class="mz-l-paginatedlist-header">
-            <div class="title-sortby-wrappper">
-                <h1 class="mz-pagetitle">{{ pageName|replace("~", ""|safe }}</h1>
-                <div data-mz-pagesort class="mz-sortby">
-                    {% include "modules/common/page-sort" %}
+    {% endif %}
+
+    <div class="{% if model.facets %} col-xs-12 col-sm-9 col-md-10{%else%} col-xs-12{% endif %}">
+        <div class="mz-l-paginatedlist">
+            <div class="mz-l-paginatedlist-header">
+                <h1 class="mz-pagetitle">{{ navigation.currentNode.name|upper }}</h1>
+                <div class="col-sm-4">
+                    <div class="row">
+                        <div data-mz-pagesort class="mz-sortby">
+                            {% include "modules/common/page-sort" %}
+                        </div>
+                    </div>
+                </div>
+                {% if pageContext.isDesktop %}
+                <div class="col-sm-6 col-md-offset-2">
+                    <div class="row">
+                        <div data-mz-pagenumbers class="mz-pagenumbers">
+                            {% include "modules/common/page-numbers" %}
+                        </div>
+                        <div data-mz-pagingcontrols class="mz-pagingcontrols">
+                            {% include "modules/common/paging-controls" %}
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+
+            {% if pageContext.isMobile or pageContext.isTablet %}
+                {% if model.facets %}
+                <div data-mz-facets class="mz-l-sidebar">
+                    {% include "modules/product/faceting-form" %}
+                </div>
+                {% endif %}
+            {% endif %}
+
+            <div data-mz-productlist class="mz-l-paginatedlist-list">
+                {% include "modules/product/product-list-tiled" %}
+            </div>
+            <div class="mz-l-paginatedlist-footer">
+                {% if pageContext.isMobile or pageContext.isTablet %}
+                    <div class="mz-back-to-top text-center">
+                        <button class="btn btn-default mz-back-to-top-button">{{ labels.backToTop }}</button>
+                    </div> 
+                {% endif %}
+                <div data-mz-pagenumbers class="mz-pagenumbers">
+                    {% include "modules/common/page-numbers" %}
+                </div>
+                <div data-mz-pagingcontrols class="mz-pagingcontrols">
+                    {% include "modules/common/paging-controls" %}
                 </div>
             </div>
-        </div>
+        </div>    
     </div>
 </div>
-{% if model.facets %}
-<div data-mz-facets class="mz-l-sidebar col-xs-12 col-sm-4 col-md-3">
-    {% include "modules/product/faceting-form" %}
-</div>
-{% endif %}
-<div class="mz-l-paginatedlist pull-right{% if model.facets %} col-xs-12 col-sm-8 col-md-9{%else%} col-xs-12{% endif %}">
-    <div>
-        <div class="mz-l-paginatedlist-header">
-            <div data-mz-pageview class="mz-pageview">
-                {% include "modules/common/page-view" %}
-            </div>            
-            <div data-mz-pagenumbers class="mz-pagenumbers">
-                {% include "modules/common/page-numbers" %}
-            </div>
-            <div data-mz-pagingcontrols class="mz-pagingcontrols">
-                {% include "modules/common/paging-controls" %}
-            </div>
-        </div>
-        <div data-mz-productlist class="mz-l-paginatedlist-list">
-            {% include "modules/product/product-list-tiled" %}
-        </div>
-        <div class="mz-l-paginatedlist-footer">
-            <div class="back-to-top">
-                <button class="btn btn-default mz-back-to-top-button">{{ labels.backToTop }}</button>
-            </div>
-            <div data-mz-pagenumbers class="mz-pagenumbers">
-                {% include "modules/common/page-numbers" %}
-            </div>
-            <div data-mz-pagingcontrols class="mz-pagingcontrols">
-                {% include "modules/common/paging-controls" %}
-            </div>
-        </div>
-    </div>
-</div>
+

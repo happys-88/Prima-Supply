@@ -1,17 +1,15 @@
-﻿{% if navigation.breadcrumbs.length != 0 %}
-  <script type="text/json" id="data-mz-preload-breadcrumb">
-    [{% for item in navigation.breadcrumbs %}{"url": "{{item.url}}","name": "{{item.name|replace("_", " ")|replace(themeSettings.columnBreaker, "")|safe}}"}{% if not forloop.last %},{% endif %}{% endfor %}]
-  </script>
-<div class="mz-breadcrumbs margin-bottom-15 clearfix">
-    <ul>
-      {% if navigation.breadcrumbs.length > 0 %}
-        <li><a href="/" class="mz-breadcrumb-link">Home</a> </li>
-      {% endif %}
-      {% if lastCategory %}
-      {% include "modules/breadcrumb-interior" with breadcrumbs=lastCategory %}
+﻿<div class="mz-breadcrumbs">
+  {% if navigation.breadcrumbs %}
+    <a href="{{siteContext.siteSubdirectory}}/" class="mz-breadcrumb-link">Home</a> <span class="mz-breadcrumb-separator">&#47;</span>
+  {% endif %}
+  
+  {% for crumb in navigation.breadcrumbs %}
+    {% if not crumb.isHidden %}
+      {% if not forloop.last %}
+        <a href="{{crumb.url}}" class="mz-breadcrumb-link{% if forloop.first %} is-first{% endif %}">{{crumb.name|replace(themeSettings.columnBreaker, "")|safe|lower }}</a> <span class="mz-breadcrumb-separator">&#47;</span>
       {% else %}
-      {% include "modules/breadcrumb-interior" with breadcrumbs=navigation.breadcrumbs %}
+        <span class="mz-breadcrumb-current">{{ crumb.name|replace(themeSettings.columnBreaker, "")|safe|lower }}</span>
       {% endif %}
-    </ul>
+    {% endif %}
+  {% endfor %}
 </div>
-{% endif %}

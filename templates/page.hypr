@@ -30,7 +30,7 @@
             {%endif%}
         {% endif %}
         {% if PageContext.MetaDescription %}
-            <meta property="og:description" content='{{ PageContext.MetaDescription|replace("'","&rsquo;")|safe }}'>
+            {# <meta property="og:description" content='{{ PageContext.MetaDescription|replace("'","&rsquo;")|safe }}'> #}
         {% endif %}
             {% if model.mainImage %}
                 <meta property="og:image" content='https:{% make_url "image" model.mainImage with maxWidth=350 as_parameters %}'>
@@ -131,17 +131,18 @@
                         </div>
                     </div>
                 </div> 
-                <div role="main" id="page-content" class="mz-l-pagecontent">
-                    <div class="container">
-                        <div class="row">               
-                            {% block body-content %}
-                            {% dropzone "body" scope="page" %}
-                            {% endblock body-content %}
-                            {% block body-below-content %}
-                            {% dropzone "body-bottom" scope="template" %}
-                            {% endblock body-below-content %}
-                        </div>
-                    </div>
+                <div role="main" id="page-content" class="mz-l-pagecontent container">
+                    {% block breadcrumbs %}
+                        {% if themeSettings.showBreadcrumbs %}
+                            {% include "modules/breadcrumbs" %}
+                        {% endif %}
+                    {% endblock breadcrumbs %}             
+                    {% block body-content %}
+                        {% dropzone "body" scope="page" %}
+                    {% endblock body-content %}
+                    {% block body-below-content %}
+                        {% dropzone "body-bottom" scope="template" %}
+                    {% endblock body-below-content %}
                 </div>
                 {% block secondary-nav %}
                     {% include "modules/secondary-nav" %}
