@@ -1,3 +1,77 @@
+.mz-pageheader{
+    .ml-header-content{
+        position: relative;
+        .ml-header-logo-wrapper{
+            float: left;
+            margin-right: 75px; 
+            .logo{
+                display: block;
+                background: url("../resources/images/prima-supply-logo.png") left top no-repeat;
+                width: 250px;
+                height: 68px;
+                background-size: contain;
+                transition: all 0.5s ease-in-out; 
+            }
+            img{
+                display: block;
+                transition: width 0.5s ease-in-out;
+            }
+        }
+
+        .ml-header-search-wrapper{
+            float: left;
+            margin: 15px 0 0;
+            position: absolute;
+            left: 340px; 
+            width: auto;
+            .mz-searchbox-field {
+                display: inline-block;
+                position: relative;
+                border: 1px solid @inputBorder;
+                background: white;
+                height: 46px;
+                .mz-searchbox-input { 
+                    width: 550px;
+                    height: 44px;
+                    font-size: 16px; 
+                    color: #3d3d3d;
+                    line-height: 20px; 
+                    padding-left: 26px;
+                    padding-right: 72px;
+                }
+                .mz-searchbox-button {
+                    background: #495363; 
+                    color: #fff;
+                    display: block;
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    width: 46px;
+                    height: 44px;
+                    margin-left: -1em;
+                    border-width: 0;
+                    border-radius: 0;
+                    padding: 0;
+                }
+            }
+
+            ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+                color: #495363;
+            }
+            ::-moz-placeholder { /* Firefox 19+ */
+                color: #495363;
+            }
+            :-ms-input-placeholder { /* IE 10+ */
+                color: #495363;
+            }
+            :-moz-placeholder { /* Firefox 18- */
+                color: #495363;
+            }
+        }
+    }
+}
+
+
 .mz-sitenav {
     background: #495363;
 }
