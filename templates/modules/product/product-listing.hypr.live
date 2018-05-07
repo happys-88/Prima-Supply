@@ -181,3 +181,17 @@
         {% include "modules/product/product-item-out-of-stock" with model=model%}
     {% endif %}
 {% endif %}
+{% with model|get_product_attribute("tenant~show-price") as showPriceAttr %}
+    {% if showPriceAttr.values|first|prop("value") == 'view-on-login' %}
+      {% if user.isAuthenticated %}
+           <button class="mz-button add-to-cart {% if not model.purchasableState.isPurchasable %} is-disabled {% endif %}" data-productcode="{{model.productCode}}" {% if not model.purchasableState.isPurchasable %} disabled="disabled" {% endif %} > {{ labels.addToCart }} </button>
+      {% endif %} 
+      {% else %}
+           <button class="mz-button add-to-cart {% if not model.purchasableState.isPurchasable %} is-disabled {% endif %}" data-productcode="{{model.productCode}}" {% if not model.purchasableState.isPurchasable %} disabled="disabled" {% endif %} > {{ labels.addToCart }} </button>
+    {% endif %} 
+{% endwith %}
+{% with model|get_product_attribute("tenant~new-arrival") as newArrival %}
+    {% if newArrival.values|first|prop("value") == true %}
+        <spna class="mz-new-arrival-tag">New</span>
+    {% endif %} 
+{% endwith %}

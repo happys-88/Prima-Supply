@@ -10,7 +10,7 @@
     "allowProduction": true,
     "baseTheme": "https://github.com/happys-88/Prima-Supply",
     "baseThemeVersion": {
-      "commit": "2ace585e16e249a4bb48d5bb80df2fef3d365c7a"
+      "commit": "666e8e91747304955b980e401f06d9790a7b1c30"
     }
   },
   "editors": [
@@ -502,7 +502,7 @@
     "swatchImageWidth": 30,
     "enableSwatchHoverMain": true,
     "enableSwatchHoverAlt": true,
-    "productImageDirectoryMaxWidth": 265,
+    "productImageDirectoryMaxWidth": 160,
     "productThumbImageMaxWidth": 84,
     "sessionTimeout": "1800",
     "productZoomImageMaxWidth": 700,
