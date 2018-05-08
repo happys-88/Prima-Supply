@@ -50,7 +50,7 @@
                 {% else %}
                     <ul class="product-swatches" {% if model.productType == themeSettings.oneSizeProductType %} style="display:none;" {% endif %}> 
                     {% for value in option.values %}
-                        <li data-mz-product-option-attribute="{{ option.attributeFQN }}" {% if not value.isEnabled %}  class="disabled" disabled {% endif %} {% if value.isSelected %}class="active" {% endif %} data-value="{{value.value}}"><span class="size-swatches-container">
+                        <li data-mz-product-option-attribute="{{ option.attributeFQN }}" {% if option.attributeFQN == 'tenant~color' %}style="background-color: {{value.value}};"{% endif %} {% if not value.isEnabled %}  class="disabled" disabled {% endif %} {% if value.isSelected %}class="active" {% endif %} data-value="{{value.value}}"><span class="size-swatches-container">
                             <a href="javascript:void(0);">
                                 {% if value.stringValue == "CHR(38)" %}
                                     &amp;
