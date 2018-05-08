@@ -3,9 +3,11 @@
     {% include "modules/product/product-validation" %}
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="close-modal">
-                <span class="mz-close-icon" aria-hidden="true" data-mz-quickview-close="true"></span>  
+            <div class="modal-header">
+                <h4 class="modal-title">Quick view</h4>
+                <span class="mz-close-icon" aria-hidden="true" data-mz-quickview-close="true"></span>
             </div>
+            
             <div class="modal-body">
                 <div class="row first">
                     <div class="col-xs-6 col-fixed-1">
@@ -17,17 +19,13 @@
                         <div class="row">
                             <div class="col-xs-12 no-padding-right">
                                 <div class="mz-product-detail-tabs">
-                                    <ul class="tabs">
-                                        <li class="active" rel="overview-tab" tabindex="0">{{ labels.overview }}</li>
-                                        <li rel="description-tab">{{ labels.fullDesc }}</li>
-                                    </ul>
                                     <div class="tab_container">
-                                        <div id="overview-tab" class="tab_content">
+                                        <div id="overview-tab">
                                             <div class="mz-product-top-content">
                                                 <div class="mz-pagetitle" itemprop="name">{{ model.content.productName|safe }}</div>
                                                 <div class="row">
                                                     <div class="col-xs-12 col-sm-12">
-                                                    <div class="mz-productcodes-productcode p-3" itemprop="sku">Item # {{ model.productCode }}</div>
+                                                        <div class="mz-productcodes-productcode p-3" itemprop="sku">Item # {{ model.productCode }}</div>
                                                     </div>
                                                 </div>
                                                 {% comment %}
@@ -56,10 +54,10 @@
                                                 <div class="mz-l-stack-section mz-productdetail-conversion row">
                                                     <div class="mz-productdetail-conversion-controls col-xs-4">
                                                         <label class="mz-qty-label text-uppercase" for="mz_quickview_qty">{{ labels.qty }}</label>
-                                                        <div class="qty-block">
-                                                            <div class="qty-counter" id="minus" data-mz-qty-minus role="button"><i class="fa fa-minus"  aria-hidden="true"></i></div>
+                                                        <div class="qty-block"> 
                                                             <input id="mz_quickview_qty" class="mz-productdetail-qty text-center" type="text" value="1" readonly="readonly" data-mz-value="quantity" title="Quantity">
-                                                            <div class="qty-counter" id="plus" data-mz-qty-plus role="button"><i class="fa fa-plus" aria-hidden="true"></i></div>
+                                                            <div class="qty-counter" id="plus" data-mz-qty-plus role="button"><i class="fa fa-angle-up" aria-hidden="true"></i></div>
+                                                            <div class="qty-counter" id="minus" data-mz-qty-minus role="button"><i class="fa fa-angle-down" aria-hidden="true"></i></div>   
                                                         </div>
                                                         <span class="mz-validationmessage validation-msg" data-mz-validationmessage-for="quantity"></span>
                                                     </div>
@@ -68,19 +66,15 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            
-                                        </div>
-                                        <div id="description-tab" class="tab_content">
-                                            {{ model.content.productShortDescription|safe }}
                                         </div>
                                     </div>
                                 </div>
+                                <div class="add-to-cart-container">
+                                    <button id="add-to-cart" class="mz-productdetail-addtocart btnAddToCart button_primary mz-button{% if not model.purchasableState.isPurchasable %} button_disabled{% endif %}" data-mz-action="addToCart" >{{ labels.addToCart }}
+                                </button>
                                 <div class="full-product">
                                     <a href="{% make_url "product" model %}" class="link-green">{{ labels.fullProductDetails }}</a>
                                 </div>
-                                <div class="add-to-cart-container">
-                                    <button id="add-to-cart" class="mz-productdetail-addtocart btnAddToCart button_primary pull-right{% if not model.purchasableState.isPurchasable %} button_disabled{% endif %}" data-mz-action="addToCart" >{{ labels.addToCart }}
-                                </button>
                             </div>
                             <div class="surcharge">
                             {% include "modules/product/product-delivery-surcharge" %}
