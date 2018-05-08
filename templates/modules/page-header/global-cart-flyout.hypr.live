@@ -3,23 +3,28 @@
 	{
 		"items": [
 			{% for item in model.items %}
-				{"productCode": "{{item.product.productCode}}"
+				{"productCode": "{{item.product.productCode}}",
+				"mfg": "{{item.product.mfgPartNumber}}"
 				}{% if not forloop.last %},{% endif %}
 			{% endfor %}
 		]
 	}
 </script>
+
 {% if model.items.length>0 %}
 	<div class="media-list">	
 		<div class="row heading">
-			<div class="col-xs-7">
-				<p>{{ labels.item }}</p>
+			<div class="col-xs-6 text-left">
+				<p>SHOPPING CART</p>
 			</div>
-			<div class="col-xs-3 text-center">
-				<p>{{ labels.price }} {{ labels.each }}</p>
+			<div class="col-xs-2">
+				<p>QTY</p>
 			</div>
-			<div class="col-xs-2 text-right">
-				<p>{{ labels.price }}</p>
+			<div class="col-xs-2">
+				<p>PRICE EACH</p>
+			</div>
+			<div class="col-xs-2">
+				<p>PRICE</p>
 			</div>
 		</div>
 		{% for items in model.cartItems  %}
@@ -42,13 +47,15 @@
 						  {% endif %}  
 						{% endwith %}
 					</a>
+					MPN:{{items.product.VariationProductCode|default(items.product.productCode)}}
 				</div>
-				<div class="col-xs-4 title-box">
+				<div class="col-xs-3 title-box">
 					<h5 class="media-heading">
 						<a href="/p/{{ items.product.productCode }}">
 							{{ items.product.name|safe }}
 						</a>
 					</h5>
+					
 					{% if items.product.options and items.product.productType != themeSettings.oneSizeProductType %}
 						{% for option in items.product.options %}
 						<p>{% if option.name == "OTHER" %}
@@ -70,12 +77,21 @@
 							{% endif %}</p>
 						{% endfor %}
 					{% endif %}
-					<p>Qty: {{ items.quantity }}</p>
+					
 				</div>
-				<div class="col-xs-3 price-each text-right">
+			   <div class="col-xs-2 cart-item-qty hidden-xs">  
+					<div class="mz-carttable-item-qty mz-cart-qty-box">            
+					  <input aria-label="{{labels.itemQuantity}}" id="qty" class="mz-carttable-qty-field text-center" type="number" {% if model.isLoading %}disabled="disabled"{% endif %} data-mz-cart-item="{{ items.id }}" data-mz-value="quantity" value="{{ items.quantity }}" min="1"/>
+					</div>
+					 <div class="mz-carttable-item-remove">
+					  <a href="javascript:void(0);" data-mz-action="removeItem" data-mz-cart-item="{{ items.id }}" class="btn-link"><i class="fa fa-times"></i>{{ labels.remove }}</a>
+					</div>
+					<div class="mz-carttable-validation-msg mz-desktop-align"><span class="mz-validationmessage" data-mz-validationmessage-for="quantity" id="{{ items.id }}"></span></div>
+				</div>
+				<div class="col-xs-2 price-each text-center">
 					 {% include "modules/common/item-price" with item=items %}
 				</div>
-				<div class="col-xs-2 text-right">
+				<div class="col-xs-2 text-center">
 					<span>{% include "modules/common/item-total" with item=items isGlobalCart="true" %}
 					</span>
 				</div>
@@ -107,24 +123,19 @@
 	    </div>
 	</div>
 	<div class="row checkout">
-		<div class="col-xs-7">
-			<a href="/cart" class="btn link-green text-uppercase">{{ labels.openCart }}</a>
-			{% if (themeSettings.globalCartEnableSaveCart && user.isAnonymous && user.isAuthenticated && false)  %}
-				<button data-mz-action="openLiteRegistration" class="btn btn-default">Save Cart</button>
-			{% endif %}
+	
+		<div class="col-xs-5">
+				{% if not user.isAnonymous && user.isAuthenticated %}
+				<button data-mz-action="openLiteRegistration" class="mz-button btn btn-default">Save Cart</button>	
+				{% endif%}
+		
 		</div>
-		<div class="col-xs-5 text-right">
-			{% if not user.isAnonymous && user.isAuthenticated %}
-			<form method="post" value="" id="registeredCheckout">
-				<button type="submit" class="btn btn-default button_primary font-medium" data-mz-action="proceedToCheckout">{{ labels.checkout }}</button>
-			</form>
-			{% else%}
-				<button type="submit" class="btn btn-default button_primary font-medium" data-mz-action="checkoutGuest">{{ labels.checkout }}</button>
-			{% endif%}
+		<div class="col-xs-7">
+				<a href="/cart" class="mz-button btn link-green text-uppercase">{{ labels.openCart }}</a>
 		</div>
 	</div>
 {% else %}
 	<div class="text-center">
-		<div class="global-cart-empty-text">Your Shopping cart is empty</div>
+		<button class="global-cart-empty-text">Your Shopping cart is empty</button>
 	</div>
 {% endif %}
