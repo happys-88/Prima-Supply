@@ -10,7 +10,7 @@
     "allowProduction": true,
     "baseTheme": "https://github.com/happys-88/Prima-Supply",
     "baseThemeVersion": {
-      "commit": "33de03adda928b41d4e3b33370c2309a6b2c1fdf"
+      "commit": "d9b9c02958ec4cada81ac974c800d194a2b5b73b"
     }
   },
   "editors": [
@@ -529,7 +529,7 @@
     "rviNumberCookie": 10,
     "rviExpirationDuration": 21,
     "searchStorePlaceHolder": "Enter City, State or ZIP",
-    "defaultStoreImage": "resources/images/defaultStoreImage.jpg",
+    "defaultStoreImage": "resources/images/defaultStoreImage.png",
     "globalCartMaxItemCount": 3,
     "globalCartEnableSaveCart": "true",
     "globalCartHidePopover": "",
@@ -615,7 +615,7 @@
     "showMSRP": true,
     "showProductDetailMeasurements": true,
     "showProductDetailMfgPartNumber": true,
-    "showProductDetailProperties": false,
+    "showProductDetailProperties": true,
     "showProductDetailShortDesc": true,
     "showProductDetailUPC": true,
     "primaSupplylogo": "/resources/images/prima-supply-logo.png",
